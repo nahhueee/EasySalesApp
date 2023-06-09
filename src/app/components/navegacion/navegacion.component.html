@@ -1,0 +1,31 @@
+<!-- Para Pantallas grandes -->
+<div *ngIf="pantalla>=768" class="menu-pc">
+  <div class="logo">
+    <p>A</p>
+    <img src="assets/logo.png" width="100px" height="35px">
+  </div>
+
+  <div class="item" (click)="setTitulo('Inventario')" [routerLink]="['/inventario/']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"><mat-icon>inventory_2</mat-icon><a>Inventario</a></div>
+  <div class="item" (click)="setTitulo('Rubros')" [routerLink]="['/rubros/']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"><mat-icon>category</mat-icon><a>Rubros</a></div>
+  <div class="item" (click)="setTitulo('Proveedores')" [routerLink]="['/proveedores/']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"><mat-icon>local_shipping</mat-icon><a>Proveedores</a></div>
+  <a class="item" (click)="setTitulo('Clientes')" [routerLink]="['/clientes/']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"><mat-icon>escalator_warning</mat-icon>Clientes</a>
+  <a class="item" (click)="setTitulo('Usuarios')" [routerLink]="['/usuarios/']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"><mat-icon>group</mat-icon>Usuarios</a>
+</div>
+
+<!-- Para Pantallas chicas -->
+<div *ngIf="pantalla<768" class="menu-movil">
+  <div class="bar">
+    <h2>MENU</h2>
+    <button mat-raised-button color="accent" (click)="isCollapsed = ! isCollapsed" [attr.aria-expanded]="!isCollapsed"><mat-icon>menu</mat-icon></button>
+  </div>
+  <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+    <mat-card class="card">
+      <div class="item" (click)="setTitulo('Inventario')" [routerLink]="['/inventario/']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"><mat-icon>inventory_2</mat-icon><a>Inventario</a></div>
+      <div class="item" (click)="setTitulo('Rubros')" [routerLink]="['/rubros/']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"><mat-icon>category</mat-icon><a>Rubros</a></div>
+      <div class="item" (click)="setTitulo('Proveedores')" [routerLink]="['/proveedores/']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"><mat-icon>local_shipping</mat-icon><a>Proveedores</a></div>
+      <div class="item" (click)="setTitulo('Clientes')" [routerLink]="['/clientes/']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"><mat-icon>escalator_warning</mat-icon><a>Clientes</a></div>
+      <a class="item" (click)="setTitulo('Usuarios')" [routerLink]="['/usuarios/']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"><mat-icon>group</mat-icon>Usuarios</a>
+    </mat-card>
+  </div>
+</div>
+

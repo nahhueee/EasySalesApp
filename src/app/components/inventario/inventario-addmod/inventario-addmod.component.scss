@@ -1,0 +1,46 @@
+.cabecera{
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-alternative) !important;
+  margin: -24px -24px  20px -24px; //Aplico estos margenes para pegar la cabecera arriba
+}
+.cabecera h2{
+  margin: 0%;
+  color: white;
+  font-size: 20px;
+  font-family: "Poppins-Light";
+}
+mat-icon{
+  //Margenes para ponerlo a altura de las letras
+  margin-right: 15px;
+  margin-top: -10px;
+
+  color: var(--color-primary) !important;
+  font-size: 35px;
+}
+
+.btn-action{
+  width: 120px;
+  margin: 0px 3px;
+}
+
+
+/*#region CAMPOS*/
+.campos {
+  display: flex;
+  width: 100%;
+}
+.campoIzq {
+  width: 100%;
+  padding-right: 5px;
+}
+.campoDer {
+  width: 100%;
+  padding-left: 5px;
+}
+.full-width{
+  width: 100%;
+}
+/*#endregion */

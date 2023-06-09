@@ -1,0 +1,89 @@
+<div class="cabecera">
+  <mat-icon>escalator_warning</mat-icon>
+  <h2 mat-dialog-title>{{titulo}}</h2>
+</div>
+  <mat-dialog-content class="mat-typography">
+    <form [formGroup]="formulario" method="POST">
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+
+          <!-- Codigo -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Codigo</mat-label>
+            <input matInput type="text" formControlName="codigo">
+            <mat-error>
+              Completa con un código
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Producto -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Producto</mat-label>
+            <input matInput type="text" formControlName="producto">
+            <mat-error>
+              Completa con un nombre de producto
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Cantidad -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Cantidad</mat-label>
+            <input matInput type="number" formControlName="cantidad">
+          </mat-form-field>
+
+          <div class="row">
+            <div class="col-6">
+              <!-- Costo -->
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Costo</mat-label>
+                <input matInput type="number" formControlName="costo">
+              </mat-form-field>
+            </div>
+            <div class="col-6">
+              <!-- Precio -->
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Precio</mat-label>
+                <input matInput type="number" formControlName="precio">
+              </mat-form-field>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-xs-12 col-md-6">
+
+          <!-- Vencimiento -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Fecha Vencimiento</mat-label>
+            <input class="full-width" matInput [matDatepicker]="picker" formControlName="vencimiento">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <div class="campos">
+            <div class="campoIzq">
+              <!-- Faltante -->
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Faltante</mat-label>
+                <input matInput type="number" formControlName="faltante">
+              </mat-form-field>
+            </div>
+            <div class="campoDer">
+              <!-- Unidad -->
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Unidad</mat-label>
+                <mat-select formControlName="unidad">
+                  <mat-option *ngFor="let uni of Unidades" [value]="uni.name">{{uni.name}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </form>
+  </mat-dialog-content>
+
+    <mat-dialog-actions align="center">
+      <button class="btn-action" mat-flat-button color="primary" [mat-dialog-close]="true" cdkFocusInitial (click)='modificando? Modificar() : Agregar()' >ACEPTAR</button>
+      <button class="btn-action" mat-flat-button color="warn" mat-dialog-close>CANCELAR</button>
+    </mat-dialog-actions>

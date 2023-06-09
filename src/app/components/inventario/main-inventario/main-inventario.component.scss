@@ -1,0 +1,10 @@
+// Los estilos SCSS para la interaccion de el SIDEBAR
+// con el CONTENIDO se encuentra en el archivo stiles.css,
+// ya que se aplican estilos globales
+
+//Los estilos SCSS para la tabla se encuentran en el archivo stiles.css
+
+//Elimina el padding bottom de el txtBusqueda
+::ng-deep .txtbusqueda .mat-form-field-wrapper{
+  padding-bottom: 0px !important;
+}

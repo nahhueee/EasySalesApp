@@ -1,0 +1,225 @@
+/*#region ANGULAR MATERIAL*/
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '~@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$easysales-app-primary: mat.define-palette(mat.$indigo-palette);
+$easysales-app-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$easysales-app-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$easysales-app-theme: mat.define-light-theme((
+  color: (
+    primary: $easysales-app-primary,
+    accent: $easysales-app-accent,
+    warn: $easysales-app-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($easysales-app-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/*#endregion */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+/*#region FONTS*/
+@font-face {
+  font-family: "Poppins-Light";
+  src: url('../src/assets/fonts/Poppins-Light.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+ }
+ @font-face {
+  font-family: "Poppins-Regular";
+  src: url('../src/assets/fonts/Poppins-Regular.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+ }
+ @font-face {
+  font-family: "Roboto-Medium";
+  src: url('../src/assets/fonts/Roboto-Medium.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url('../src/assets/fonts/Roboto-Regular.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url('../src/assets/fonts/Roboto-Bold.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Quantum";
+  src: url('../src/assets/fonts/Quantum.otf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "LEMONMILK";
+  src: url('../src/assets/fonts/LEMONMILK-Medium.otf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/*#endregion */
+
+.full-width{
+  width: 100%;
+}
+
+
+//Configuraciones globales para las pantallas principales que usan sidebar
+/*#region PRINCIPAL/SIDEDBAR*/
+.ppalRow{
+  height: 100vh;
+}
+.navbar{
+  padding: 0%;
+  background-color: #424242;
+  overflow: hidden;
+
+}
+.contenido{
+  padding: 10px 30px 20px 30px;
+  background-color: var(--color-background) !important;
+}
+@media (max-width: 767px) {
+  .contenido{
+    height: 100%;
+    padding: 10px 10px 20px 10px;
+  }
+}
+
+//Botones AMBC
+.abmc .botones{
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.botones button{
+  display: flex;
+  align-items: center;
+  max-height: 40px;
+}
+.botones mat-icon{
+  margin-right: 5px;
+}
+
+@media only screen and (max-width: 767px){
+  .botones{
+    margin-top: 10px;
+    justify-content: center;
+  }
+}
+
+//Botones de herramientas
+.btnsHerramientas{
+  display: flex;
+  gap: 8px;
+}
+.btnsHerramientas button{
+  height: 40px;
+}
+
+/*#endregion */
+
+/*#region Configuraciones globales para TABLAS ABMC*/
+.mat-header-cell{
+  font-size: 15px;
+}
+.mat-row:hover {
+  background: var(--color-row) !important;
+}
+.table-container{
+  margin: 15px 0px;
+}
+.ppalTable{
+  max-height: 500px;
+  overflow: auto;
+}
+
+mat-paginator{
+  margin-top: 10px;
+}
+
+//Tamaño de columna para el check
+.mat-column-select{
+  flex: 0 0 80px !important;
+  white-space: unset !important;
+}
+//Configuración de la tabla para dispositivos Móviles
+@media only screen and (max-width: 767px){
+  .mat-header-cell{
+    margin-right: 5px;
+  }
+  .mat-cell{
+    margin-right: 5px;
+    height: 80px;
+  }
+  .mat-column-select{
+    flex: 0 0 15% !important;
+    width: 15% !important;
+  }
+  .mat-header-cell:first-of-type{
+    padding-left: 15px !important;
+  }
+  .mat-cell:first-of-type{
+    padding-left: 15px;
+  }
+
+  .ppalTable{
+    max-height: 300px;
+    overflow: auto;
+  }
+}
+/*#endregion */
+
+/*#region NOTIFICACIONES*/
+.toast-error{
+  background-color: #DC3545 !important;
+}
+.toast-warning{
+  background-color: #ff9152 !important;
+}
+.toast-success{
+  background-color: #28A745 !important;
+}
+
+.toast-container .ngx-toastr{
+  box-shadow: none !important;
+}
+.toast-title{
+  letter-spacing: normal !important;
+  text-transform: uppercase;
+  font-size: 18px !important;
+  font-family: 'Poppins-Light' !important;
+  font-weight: normal !important;
+}
+.toast-close-button{
+  font-weight: normal !important;
+}
+/*#endregion */

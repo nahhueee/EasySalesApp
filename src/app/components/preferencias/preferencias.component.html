@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="row ppalRow">
+    <div class="col-md-3 col-lg-2 align-items-start navbar">
+      <app-navegacion></app-navegacion>
+    </div>
+    <div class="col-md-9 col-lg-10 contenido">
+        <app-herramientas-bar></app-herramientas-bar>
+
+
+        <!-- Cambiar al modo oscuro/claro -->
+        <mat-slide-toggle color="primary" [(ngModel)]="esDark">Modo Oscuro</mat-slide-toggle>
+
+        <!-- Cambiar el color del tema -->
+        <h4>Selecciona un color para la interfaz</h4>
+        <div>
+          <mat-form-field appearance="fill" color="primary">
+            <mat-label>Selecciona un color</mat-label>
+            <mat-select (selectionChange)="selectColor($event.value)" [(ngModel)]="colorSeleccionado">
+              <mat-option *ngFor="let color of colores" [value]="color.value">
+                <img src="{{ color.img }}" width="15px" height="15px"> {{color.texto}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <button mat-raised-button color="primary" (click)="cambiarTema()">Guardar Preferencias</button>
+      </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+

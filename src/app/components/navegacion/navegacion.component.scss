@@ -1,0 +1,71 @@
+/*#region SIDEBAR*/
+  .item{
+    width: 100%;
+    display:inline-flex;
+    align-items: center;
+    height: 10%;
+    padding: 10px 25px;
+    cursor: pointer;
+    color: rgb(235, 235, 235);
+    font-family: "Poppins-Light";
+    text-decoration:none;
+  }
+  .item:hover{
+    background-color: #212121;
+
+    mat-icon{
+      color: var(--color-primary) !important;
+    }
+  }
+  .item mat-icon{
+    color: #fff;
+    margin-right: 5px;
+  }
+
+  // Deja marcada la opción seleccionada
+  .active{
+    background-color: #212121;
+
+    mat-icon{
+      color: var(--color-primary) !important;
+    }
+  }
+
+  /*#region MOVIL*/
+  .bar{
+    width: 100vw;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 25px;
+  }
+  .bar h2{
+    margin: 0%;
+    font-family: "Poppins-Light";
+    color: #fff;
+  }
+  .card{
+    padding: 10px 0%;
+    background-color: #424242;
+  }
+  /*#endregion */
+/*#endregion */
+
+/*#region LOGO*/
+.logo{
+  width: auto;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #111111;
+}
+.logo p{
+  margin: -15px 5px 0px 0px;
+  font-size: 35px;
+  color: var(--color-primary) !important;
+  font-family: "Quantum";
+  letter-spacing: 1px
+}
+/*#endregion */
+

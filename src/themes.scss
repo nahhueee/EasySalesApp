@@ -1,0 +1,185 @@
+@use '@angular/material' as mat;
+@import '~@angular/material/theming';
+
+$mat-theme-ignore-duplication-warnings: true;
+
+/*#region Red-Theme*/
+$red-primary: mat.define-palette(mat.$red-palette, A400);
+$red-accent: mat.define-palette(mat.$red-palette, 500);
+
+$red-theme: mat.define-light-theme((color: (primary: $red-primary, accent: $red-accent)));
+$red-theme-dark: mat.define-dark-theme((color: (primary: $red-primary, accent: $red-accent)));
+
+.red-theme{
+  @include angular-material-color($red-theme);
+  --color-primary: #{mat.get-color-from-palette($red-primary)};
+  --color-accent: #{mat.get-color-from-palette($red-accent)};
+  --color-background: #f1f1f1;
+  --color-background-rgb: 255, 255, 255;
+  --color-alternative: #424242;
+  --color-element-back: #ffffff;
+  --color-row: #ebebeb;
+}
+.red-theme-dark{
+  @include angular-material-color($red-theme-dark);
+  --color-primary: #{mat.get-color-from-palette($red-primary)};
+  --color-accent: #{mat.get-color-from-palette($red-accent)};
+  --color-background: #212121;
+  --color-background-rgb: 17, 17, 17;
+  --color-alternative: #111111;
+  --color-element-back: #424242;
+  --color-row: #252525;
+  color: white;
+}
+/*#endregion */
+
+/*#region Pink-Theme*/
+$pink-primary: mat.define-palette(mat.$pink-palette, A400);
+$pink-accent: mat.define-palette(mat.$pink-palette, 900);
+
+$pink-theme: mat.define-light-theme((color: (primary: $pink-primary, accent: $pink-accent)));
+$pink-theme-dark: mat.define-dark-theme((color: (primary: $pink-primary, accent: $pink-accent)));
+
+.pink-theme{
+  @include angular-material-color($pink-theme);
+  --color-primary: #{mat.get-color-from-palette($pink-primary)};
+  --color-accent: #{mat.get-color-from-palette($pink-accent)};
+  --color-background: #f1f1f1;
+  --color-background-rgb: 209, 209, 209;
+  --color-alternative: #424242;
+  --color-element-back: #ffffff;
+  --color-row: #ebebeb;
+}
+.pink-theme-dark{
+  @include angular-material-color($pink-theme-dark);
+  --color-primary: #{mat.get-color-from-palette($pink-primary)};
+  --color-accent: #{mat.get-color-from-palette($pink-accent)};
+  --color-background: #212121;
+  --color-background-rgb: 17, 17, 17;
+  --color-alternative: #111111;
+  --color-element-back: #424242;
+  --color-row: #252525;
+  color: white;
+}
+/*#endregion */
+
+/*#region Blue-Theme*/
+$blue-primary: mat.define-palette(mat.$blue-palette, A400);
+$blue-accent: mat.define-palette(mat.$indigo-palette, 600);
+
+$blue-theme: mat.define-light-theme((color: (primary: $blue-primary, accent: $blue-accent)));
+$blue-theme-dark: mat.define-dark-theme((color: (primary: $blue-primary, accent: $blue-accent)));
+
+.blue-theme{
+  @include angular-material-color($blue-theme);
+  --color-primary: #{mat.get-color-from-palette($blue-primary)};
+  --color-accent: #{mat.get-color-from-palette($blue-accent)};
+  --color-background: #f1f1f1;
+  --color-background-rgb: 209, 209, 209;
+  --color-alternative: #424242;
+  --color-element-back: #ffffff;
+  --color-row: #ebebeb;
+}
+.blue-theme-dark{
+  @include angular-material-color($blue-theme-dark);
+  --color-primary: #{mat.get-color-from-palette($blue-primary)};
+  --color-accent: #{mat.get-color-from-palette($blue-accent)};
+  --color-background: #212121;
+  --color-background-rgb: 17, 17, 17;
+  --color-alternative: #111111;
+  --color-element-back: #424242;
+  --color-row: #252525;
+  color: white;
+}
+/*#endregion */
+
+/*#region Green-Theme*/
+$green-primary: mat.define-palette(mat.$green-palette, 700);
+$green-accent: mat.define-palette(mat.$teal-palette, 800);
+
+$green-theme: mat.define-light-theme((color: (primary: $green-primary, accent: $green-accent)));
+$green-theme-dark: mat.define-dark-theme((color: (primary: $green-primary, accent: $green-accent)));
+
+.green-theme{
+  @include angular-material-color($green-theme);
+  --color-primary: #{mat.get-color-from-palette($green-primary)};
+  --color-accent: #{mat.get-color-from-palette($green-accent)};
+  --color-background: #f1f1f1;
+  --color-background-rgb: 209, 209, 209;
+  --color-alternative: #424242;
+  --color-element-back: #ffffff;
+  --color-row: #ebebeb;
+}
+.green-theme-dark{
+  @include angular-material-color($green-theme-dark);
+  --color-primary: #{mat.get-color-from-palette($green-primary)};
+  --color-accent: #{mat.get-color-from-palette($green-accent)};
+  --color-background: #212121;
+  --color-background-rgb: 17, 17, 17;
+  --color-alternative: #111111;
+  --color-element-back: #424242;
+  --color-row: #252525;
+  color: white;
+}
+/*#endregion */
+
+/*#region Yellow-Theme*/
+$yellow-primary: mat.define-palette(mat.$yellow-palette, 700);
+$yellow-accent: mat.define-palette(mat.$lime-palette, 400);
+
+$yellow-theme: mat.define-light-theme((color: (primary: $yellow-primary, accent: $yellow-accent)));
+$yellow-theme-dark: mat.define-dark-theme((color: (primary: $yellow-primary, accent: $yellow-accent)));
+
+.yellow-theme{
+  @include angular-material-color($yellow-theme);
+  --color-primary: #{mat.get-color-from-palette($yellow-primary)};
+  --color-accent: #{mat.get-color-from-palette($yellow-accent)};
+  --color-background: #f1f1f1;
+  --color-background-rgb: 209, 209, 209;
+  --color-alternative: #424242;
+  --color-element-back: #ffffff;
+  --color-row: #ebebeb;
+}
+.yellow-theme-dark{
+  @include angular-material-color($yellow-theme-dark);
+  --color-primary: #{mat.get-color-from-palette($yellow-primary)};
+  --color-accent: #{mat.get-color-from-palette($yellow-accent)};
+  --color-background: #212121;
+  --color-background-rgb: 17, 17, 17;
+  --color-alternative: #111111;
+  --color-element-back: #424242;
+  --color-row: #252525;
+  color: white;
+}
+/*#endregion */
+
+/*#region Orange-Theme*/
+$orange-primary: mat.define-palette(mat.$orange-palette, A400);
+$orange-accent: mat.define-palette(mat.$deep-orange-palette, 400);
+
+$orange-theme: mat.define-light-theme((color: (primary: $orange-primary, accent: $orange-accent)));
+$orange-theme-dark: mat.define-dark-theme((color: (primary: $orange-primary, accent: $orange-accent)));
+
+.orange-theme{
+  @include angular-material-color($orange-theme);
+  --color-primary: #{mat.get-color-from-palette($orange-primary)};
+  --color-accent: #{mat.get-color-from-palette($orange-accent)};
+  --color-background: #f1f1f1;
+  --color-background-rgb: 209, 209, 209;
+  --color-alternative: #424242;
+  --color-element-back: #ffffff;
+  --color-row: #ebebeb;
+}
+.orange-theme-dark{
+  @include angular-material-color($orange-theme-dark);
+  --color-primary: #{mat.get-color-from-palette($orange-primary)};
+  --color-accent: #{mat.get-color-from-palette($orange-accent)};
+  --color-background: #212121;
+  --color-background-rgb: 17, 17, 17;
+  --color-alternative: #111111;
+  --color-element-back: #424242;
+  --color-row: #252525;
+  color: white;
+}
+/*#endregion */
+

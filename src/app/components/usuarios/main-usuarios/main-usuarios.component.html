@@ -1,0 +1,90 @@
+<div class="container-fluid">
+  <div class="row ppalRow">
+    <div class="col-md-3 col-lg-2 align-items-start navbar">
+
+      <!-- Barra Lateral de Navegación -->
+      <app-navegacion></app-navegacion>
+    </div>
+    <div class="col-md-9 col-lg-10 contenido">
+
+        <!-- Barra Superior de Herramientas -->
+        <app-herramientas-bar></app-herramientas-bar>
+
+        <div class="contenedor">
+          <!-- #region ABMC -->
+          <div class="abmc">
+            <div class="botones">
+              <button type="button" class="btn btn-success" (click)="Agregar()"><mat-icon>add_circle</mat-icon>Agregar</button>
+              <button type="button" class="btn btn-info" (click)="Modificar()"><mat-icon>edit_square</mat-icon>Modificar</button>
+              <button type="button" class="btn btn-danger" (click)="Eliminar()"><mat-icon>delete_forever</mat-icon>Eliminar</button>
+            </div>
+          </div>
+          <!-- #endregion ABMC -->
+
+          <!-- #region TABLA -->
+          <div class="table-container">
+            <mat-table mat-table [dataSource]="dataSource" class="ppalTable mat-elevation-z1 full-width" matSort >
+
+              <!-- Checkbox -->
+              <ng-container matColumnDef="select">
+                <mat-header-cell mat-header-cell *matHeaderCellDef>
+                  <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                                [checked]="seleccionados.hasValue() && isAllSelected()"
+                                [indeterminate]="seleccionados.hasValue() && !isAllSelected()">
+                  </mat-checkbox>
+                </mat-header-cell>
+                <mat-cell mat-cell *matCellDef="let row">
+                  <mat-checkbox (click)="$event.stopPropagation()"
+                                (change)="$event ? seleccionados.toggle(row) : null"
+                                [checked]="seleccionados.isSelected(row)">
+                  </mat-checkbox>
+                </mat-cell>
+              </ng-container>
+
+              <!-- Usuario -->
+              <ng-container matColumnDef="usuario">
+                <mat-header-cell mat-header-cell *matHeaderCellDef> Usuario </mat-header-cell>
+                <mat-cell mat-cell *matCellDef="let element"> {{element.usuario}} </mat-cell>
+              </ng-container>
+
+              <!-- Nombre -->
+              <ng-container matColumnDef="nombre">
+                <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</mat-header-cell>
+                <mat-cell mat-cell *matCellDef="let element"> {{element.nombre}} </mat-cell>
+              </ng-container>
+
+              <!-- Email -->
+              <ng-container matColumnDef="email">
+                <mat-header-cell mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+                <mat-cell mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+              </ng-container>
+
+              <!-- Cargo -->
+              <ng-container matColumnDef="cargo">
+                <mat-header-cell mat-header-cell *matHeaderCellDef> Cargo </mat-header-cell>
+                <mat-cell mat-cell *matCellDef="let element"> {{element.cargo}} </mat-cell>
+              </ng-container>
+
+              <mat-header-row mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+              <mat-row class="table-row" mat-row *matRowDef="let row; columns: displayedColumns;"
+                  (click)="OnCellClick(row)">
+                  <!-- (click)="seleccionados.toggle(row)" (dbclick)="Modificar()"> -->
+              </mat-row>
+            </mat-table>
+
+            <mat-paginator [pageSizeOptions]="[10, 20, 40]"
+              (page)="Buscar($event)"
+              aria-label="Select page"
+              class="mat-elevation-z1">
+            </mat-paginator>
+          </div>
+          <!-- #endregion TABLA -->
+
+        </div>
+
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,10 @@
+{
+  "/api/*": {
+      "target": "http:///192.168.0.105:3000",
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin": false,
+      "pathRewrite": {"^/api/*" : "http://l/192.168.0.105:3000/api/"}
+  }
+
+}

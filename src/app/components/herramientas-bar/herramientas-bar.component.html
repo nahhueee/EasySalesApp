@@ -1,0 +1,34 @@
+<div class="contenedor">
+  <div class="navInfo">
+    <div class="perfil">
+      <button mat-mini-fab color="primary" matTooltip="Editar Perfil"><mat-icon>person</mat-icon></button>
+      <div class="info">
+        <h5>{{Nombre}}</h5>
+        <p>{{Cargo}}</p>
+      </div>
+    </div>
+    <div class="herramientas">
+      <button mat-mini-fab color="primary" matTooltip="Inicio" (click)="navegar('inicio')"><mat-icon>home</mat-icon></button>
+      <button mat-mini-fab color="primary" matTooltip="Preferencias" (click)="navegar('preferencias')"><mat-icon>settings</mat-icon></button>
+      <button mat-mini-fab color="primary" matTooltip="Cerrar Sesión" (click)="authService.CerrarSesion()"><mat-icon>power_settings_new</mat-icon></button>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Preferencias -->
+<div class="modal fade" id="ModalPreferencias" tabindex="-1" role="dialog" aria-labelledby="ModalPreferencias">
+  <div class="modal-dialog modal-md" role="document">
+      <div class="modal-content">
+          <div class="modal-header align-items-center h-100">
+              <h5 class="modal-title">Preferencias</h5>
+              <button id="btnCerrarModal" type="button" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-times"></i></button>
+          </div>
+          <div class="modal-body">
+              <div class="container">
+
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

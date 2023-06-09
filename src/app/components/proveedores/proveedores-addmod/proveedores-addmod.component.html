@@ -1,0 +1,23 @@
+<div class="cabecera">
+  <mat-icon>local_shipping</mat-icon>
+  <h2 mat-dialog-title>{{titulo}}</h2>
+</div>
+  <mat-dialog-content class="mat-typography">
+    <form [formGroup]="formulario" method="POST">
+
+      <!-- Nombre -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput type="text" formControlName="nombre">
+        <mat-error>
+          Completa con un nombre
+        </mat-error>
+      </mat-form-field>
+
+    </form>
+  </mat-dialog-content>
+
+    <mat-dialog-actions align="center">
+      <button class="btn-action" mat-flat-button color="primary" [mat-dialog-close]="true" cdkFocusInitial (click)='modificando? Modificar() : Agregar()' >ACEPTAR</button>
+      <button class="btn-action" mat-flat-button color="warn" mat-dialog-close>CANCELAR</button>
+    </mat-dialog-actions>

@@ -1,0 +1,35 @@
+.contenedor{
+  margin-bottom: 20px;
+  padding: 10px;
+  width: auto;
+  background-color: var(--color-alternative) !important;
+  border-radius: 5px;
+}
+
+/*#region Barra*/
+.navInfo{
+  display: flex;
+  justify-content: space-between;
+}
+
+.perfil{
+  display: flex;
+  align-items: center;
+}
+.info{
+  margin-left: 15px;
+  border-left: solid 1px #fff;
+  padding-left: 15px;
+  color: #fff;
+}
+.info p{
+  margin: 0%;
+}
+.info h5{
+  margin: 0%;
+}
+
+.herramientas button{
+  margin: 0% 3px;
+}
+/*#endregion */

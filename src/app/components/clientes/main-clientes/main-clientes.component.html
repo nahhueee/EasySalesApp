@@ -1,0 +1,98 @@
+<div class="container-fluid">
+  <div class="row ppalRow">
+    <div class="col-md-3 col-lg-2 align-items-start navbar">
+
+      <!-- Barra Lateral de Navegación -->
+      <app-navegacion></app-navegacion>
+    </div>
+    <div class="col-md-9 col-lg-10 contenido">
+
+        <!-- Barra Superior de Herramientas -->
+        <app-herramientas-bar></app-herramientas-bar>
+
+        <div class="contenedor">
+          <!-- #region ABMC -->
+          <div class="abmc row">
+
+            <!-- Botones de acción -->
+            <div class="order-2 col-sm-12 order-sm-2 col-md-8 order-md-1 col-lg-8 botones">
+              <button type="button" class="btn btn-success" (click)="Agregar()"><mat-icon>add_circle</mat-icon>Agregar</button>
+              <button type="button" class="btn btn-info" (click)="Modificar()"><mat-icon>edit_square</mat-icon>Modificar</button>
+              <button type="button" class="btn btn-danger" (click)="Eliminar()"><mat-icon>delete_forever</mat-icon>Eliminar</button>
+            </div>
+
+            <!-- Input de Busqueda -->
+            <div class="order-1 col-sm-12 order-sm-1 col-md-4 order-md-2 col-lg-4 txtbusqueda">
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>BUSCAR</mat-label>
+                <input matInput type="text" placeholder="presiona ENTER para buscar" [(ngModel)]="txtBusqueda" (keyup.enter)="Buscar()" (keyup.escape)="LimpiarBusqueda()">
+
+                <!-- Boton Limpiar -->
+                <button *ngIf="txtBusqueda" matSuffix matTooltip="Limpiar" mat-icon-button aria-label="Clear" (click)="LimpiarBusqueda()">
+                  <mat-icon>close</mat-icon>
+                </button>
+
+                <!-- Boton Busqueda -->
+                <button matSuffix matTooltip="Buscar" mat-icon-button aria-label="Search" (click)="Buscar()">
+                  <mat-icon>search</mat-icon>
+                </button>
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- #endregion ABMC -->
+
+          <!-- #region TABLA -->
+          <div class="table-container">
+            <mat-table mat-table [dataSource]="dataSource" class="ppalTable mat-elevation-z1 full-width" matSort >
+
+              <!-- Checkbox -->
+              <ng-container matColumnDef="select">
+                <mat-header-cell mat-header-cell *matHeaderCellDef>
+                  <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                                [checked]="seleccionados.hasValue() && isAllSelected()"
+                                [indeterminate]="seleccionados.hasValue() && !isAllSelected()">
+                  </mat-checkbox>
+                </mat-header-cell>
+                <mat-cell mat-cell *matCellDef="let row">
+                  <mat-checkbox (click)="$event.stopPropagation()"
+                                (change)="$event ? seleccionados.toggle(row) : null"
+                                [checked]="seleccionados.isSelected(row)">
+                  </mat-checkbox>
+                </mat-cell>
+              </ng-container>
+
+              <!-- Nombre -->
+              <ng-container matColumnDef="nombre">
+                <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</mat-header-cell>
+                <mat-cell mat-cell *matCellDef="let element"> {{element.nombre}} </mat-cell>
+              </ng-container>
+
+              <mat-header-row mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+              <mat-row class="table-row" mat-row *matRowDef="let row; columns: displayedColumns;"
+                  (click)="OnCellClick(row)">
+              </mat-row>
+            </mat-table>
+
+            <mat-paginator [pageSizeOptions]="[10, 20, 40]"
+              (page)="Buscar($event)"
+              aria-label="Select page"
+              class="mat-elevation-z1">
+            </mat-paginator>
+          </div>
+          <!-- #endregion TABLA -->
+        </div>
+
+        <!-- #region OTRAS HERRAMIENTAS -->
+        <app-custom-divider [texto]="'Herramientas'" [icono]="'construction'"></app-custom-divider>
+        <div class="btnsHerramientas">
+          <button mat-stroked-button color="primary">Registros Ventas</button>
+        </div>
+
+        <!-- #endregion OTRAS HERRAMIENTAS -->
+
+    </div>
+  </div>
+</div>
+
+
+
